@@ -1,5 +1,6 @@
 require 'pry'
 require 'pry-debugger'
+require 'enumerator'
 
 names = ["Adi",
  "Adrian",
@@ -28,10 +29,14 @@ names = ["Adi",
  "Stephen"]
 
 puts "How many members in each group do you want?"
+number = gets.chomp.to_i
 
-number = gets.chomp
-binding.pry
-a = names.shuffle
+  a = names.shuffle
+  b = (a.each_slice(number) {|i| puts "#{i}"}).to_a
 
-b = a.each_slice(number).to_a
-puts b
+
+
+
+
+
+
